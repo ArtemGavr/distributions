@@ -44,6 +44,13 @@ def BuildExponential(scale=0.0001, loc=0.2, number=1000000):
 
     plt.show()
 
+    exp = np.random.exponential(0.1, 1000)
+    count, bins, n = plt.hist(exp, 30, density=True)
+
+    plt.plot(bins, 1 - np.exp(-bins * 10),
+             linewidth=2, color='r')
+
+    plt.show();
 
 
 
@@ -52,11 +59,7 @@ if __name__ == '__main__':
     print('Enter numbers')
     BuildUniform(lower=int(input()), upper=int(input()))
     BuildExponential()
-    plt.figure(figsize=(7, 5))
-    count, bins, n = plt.hist(np.random.exponential((0.1, 1000)), 30, density=True)
-    plt.plot(bins, 1-np.exp(-bins*10), linewidth=2, color='r')
 
-    plt.show()
     BuildGaussian()  # normal
 
 
